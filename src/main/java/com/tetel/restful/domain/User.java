@@ -1,31 +1,50 @@
 package com.tetel.restful.domain;
 
 public class User {
-    private Long uid;
-    private String uname;
-    private Integer age;
+    private Integer id;
+    private String name;
+    private String email;
+    private String password;
 
-    public Long getUid() {
-        return uid;
+    public User() {
     }
 
-    public void setUid(Long uid) {
-        this.uid = uid;
+    public User(Integer id, String name, String email, String password) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
     }
 
-    public String getUname() {
-        return uname;
+    public Integer getId() {
+        return id;
     }
 
-    public void setUname(String uname) {
-        this.uname = uname;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Integer getAge() {
-        return age;
+    public String getName() {
+        return name;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

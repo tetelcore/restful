@@ -1,37 +1,37 @@
 package com.tetel.restful.controller;
 
+
 import com.tetel.restful.domain.User;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
-
+@Api
 @RestController
-@RequestMapping(value = UserController.USER_URL)
 public class UserController {
-//    主地址
-    protected  static  final String USER_URL="/user";
-    private static Map<String,User> addUser = new HashMap<>();
 
-
-    /**
-     *新增用户
-     * @param user
-     * @return
-     */
-    @PostMapping()
-    public User postUser(@RequestBody User user){
-//        也可以通过@RequestParam从页面中传递参数
-       addUser.put(user.getUname(),user);
+    @ApiOperation(value = "增加一个用户")
+    @PostMapping("/user")
+    public User addUser(@RequestBody User user){
         return user;
     }
 
-    /**
-     * 通过用户名获取用户列表
-     * @param uname
-     * @return
-     */
-    @GetMapping("/{uname}")
-    public User getUser(@PathVariable String uname){
-        return  addUser.get(uname);
+    @ApiOperation(value = "更改一个用户")
+    @PutMapping("/user")
+    public User updateUser(@RequestBody User user){
+        return user;
     }
+
+    @ApiOperation(value = "删除一个用户")
+    @DeleteMapping("/user/{id}")
+    public String delUser(@PathVariable ("id") Integer userId){
+        return "ok";
+    }
+    @ApiOperation(value="获取一个用户")
+    @GetMapping("/user/{id}")
+    public User getUser(@PathVariable("id") Integer userId){
+        User user=new User(1,"tetel","123456@outlook.com","123456");
+        return user;
+    }
+
 }
